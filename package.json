@@ -1,0 +1,16 @@
+{
+  "name": "caps_01",
+  "version": "1.0.0",
+  "description": "* CAPS is a service that gives vendors the opportunity to manage their product delivery via an alert system which allows them to see a pickup/delivery queue, and update the state of those deliveries.",
+  "main": "eventpool.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "start": "node hub.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
