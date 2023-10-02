@@ -6,13 +6,13 @@
 
 * Requirements:
     * PORT: (Your port number here)
-    * DATABASE_URL
+    * DATABASE_URL(when needed)
     * NPM
 
 ### Starting Application
 
 * npm install
-* npm run dev
+* npm run dev(test for lab11)
 
 ### Testing
 
