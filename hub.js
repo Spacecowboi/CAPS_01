@@ -3,7 +3,7 @@
 // require('./vendor');
 // require('./driver');
 
-const io = require('socket.io')(3000);
+const io = require('socket.io')(3001);
 // const PORT = process.env.PORT || 3001
 const caps = io.of('/caps');
 
