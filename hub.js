@@ -4,8 +4,10 @@
 // require('./driver');
 
 const io = require('socket.io')(3000);
-
+// const PORT = process.env.PORT || 3001
 const caps = io.of('/caps');
+
+// const server = new Server(PORT); I guess we dont need this since io is our server(?)
 
 caps.on('connection', (socket) => {
   console.log('Connected', socket.id);
