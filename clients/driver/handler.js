@@ -1,6 +1,6 @@
 'use strict';
 
-const eventPool = require('../eventpool.js');
+const eventPool = require('../../eventpool.js');
 
 //picking up
 eventPool.on('pickup', (payload) => {

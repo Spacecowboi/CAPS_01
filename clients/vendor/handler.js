@@ -1,6 +1,6 @@
 'use strict';
 
-const eventPool = require('../eventpool.js');
+const eventPool = require('../../eventpool.js');
 
 function order(storeName, orderId, customerName) {
     const payload = {storeName, orderId, customerName};
