@@ -4,10 +4,14 @@
 // require('./driver');
 
 const io = require('socket.io')(3001);
-// const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001
 const caps = io.of('/caps');
+const queue = require('./server/queue')
 
-// const server = new Server(PORT); I guess we dont need this since io is our server(?)
+
+console.log(`Server is running on port ${PORT}`);
+
+// const server = new Server(PORT);
 
 caps.on('connection', (socket) => {
   console.log('Connected', socket.id);
@@ -30,5 +34,18 @@ caps.on('connection', (socket) => {
   socket.on('delivered', (payload) => {
     console.log('Event: delivered', payload);
     caps.to(payload.storeName).emit('delivered', payload);
+  });
+
+  socket.on('received', (payload) => {
+    console.log('Event: receieved', payload);
+    queue.remove(payload.clientId, payload.messageId);
+  });
+
+  socket.on('getAll', (payload) => {
+    console.log('Event: getAll', payload);
+    const messages = queue.getAll(payload.clientId);
+    messages.forEach(message => {
+      socket.emit(message.event, message.payload);
+    });
   });
 });
