@@ -23,16 +23,19 @@ caps.on('connection', (socket) => {
 
   socket.on('pickup', (payload) => {
     console.log('Event: pickup', payload);
+    queue.add(payload.storeName, payload);
     caps.to(payload.storeName).emit('pickup', payload);
   });
 
   socket.on('in-transit', (payload) => {
     console.log('Event: in-transit', payload);
+    queue.add(payload.storeName, payload);
     caps.to(payload.storeName).emit('in-transit', payload);
   });
 
   socket.on('delivered', (payload) => {
     console.log('Event: delivered', payload);
+    queue.add(payload.storeName, payload);
     caps.to(payload.storeName).emit('delivered', payload);
   });
 
