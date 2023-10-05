@@ -3,6 +3,9 @@
 // const eventPool = require('../../eventpool.js');
 const io = require('socket.io-client');
 const socket = io.connect('http://localhost:3001/caps');
+//join vendor queues for messages and delivery updates
+socket.emit('join', '1-800-flowers');
+socket.emit('join', 'acme-widgets');
 
 //picking up
 socket.on('pickup', (payload) => {

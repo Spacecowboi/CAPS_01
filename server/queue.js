@@ -16,7 +16,7 @@ class MessageQueue {
         return this.queue[clientId] || [];
     }
     // remove a message from the queue 
-    remove(clientID, messageId) {
+    remove(clientId, messageId) {
         if (this.queue[clientId]) {
             this.queue[clientId] = this.queue[clientId].filter(message => message.id !== messageId);
         }
